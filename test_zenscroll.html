@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-12-24 Tue 17:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zenscroll Style Test Webpage</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Slow Blade" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="static/zenscroll.css"/>
+<script type="text/javascript" src="static/zenscroll.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Zenscroll Style Test Webpage</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgde361b7">Section 1</a></li>
+<li><a href="#org7d6a5d4">Section 2</a>
+<ul>
+<li><a href="#orgdcd7196">Subsection explaining how to use <code>HTML</code> <code>treeview</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="header"><h2><a href="index.html">Index Page</a></h2></div>
+
+<div id="outline-container-orgde361b7" class="outline-2">
+<h2 id="orgde361b7">Section 1</h2>
+<div class="outline-text-2" id="text-orgde361b7">
+<p>
+Starting text <a href="img/lenna.jpg">my hover text<span><img src="img/lenna_lowres.jpg"/></span></a> ending<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> text
+</p>
+<div class="org-src-container">
+<pre class="src src-text">Starting text [[hover:img/lenna_lowres.jpg][my hover text:img/lenna.jpg]] ending text
+</pre>
+</div>
+
+<p>
+Quoting:
+</p>
+
+<blockquote>
+<p>
+  <i>&ldquo;The slow blade penetrates the shield.&rdquo;</i> <b>&#x2013; Gurney
+  Hallack</b><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+</p>
+</blockquote>
+
+<p>
+Footnote tab opens when cursor is hovered over the bottom part of the
+browser window, and should close when the mouse hovers out of the region.
+The tab will also open if a numerical-superscript citation link is clicked.
+Hovering over citation links in main body will draw a white highlighted box
+around the relevant footnote. Test this in the following:
+</p>
+
+<ul class="org-ul">
+<li>Proposition A<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup></li>
+<li>Proposition B<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup></li>
+<li>Statement C<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup></li>
+</ul>
+
+<blockquote>
+<p>
+if Proposition A<sup><a id="fnr.3.100" class="footref" href="#fn.3">3</a></sup> and Proposition B<sup><a id="fnr.4.100" class="footref" href="#fn.4">4</a></sup> are true, then statement C<sup><a id="fnr.5.100" class="footref" href="#fn.5">5</a></sup> follows.
+</p>
+</blockquote>
+
+<p>
+Clicking on the same citation link twice consecutively will collapse the
+footnote tab.
+</p>
+
+<p>
+Files being used:
+</p>
+<ul class="org-ul">
+<li><a href="static/zenscroll.css">static/zenscroll.css</a><sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup></li>
+<li><a href="static/zenscroll.js">static/zenscroll.js</a><sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup></li>
+<li><a href="hover_preview_and_treeview_html.el">hover_preview_and_treeview_html.el</a><sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7d6a5d4" class="outline-2">
+<h2 id="org7d6a5d4">Section 2</h2>
+<div class="outline-text-2" id="text-org7d6a5d4">
+<p>
+Check out this clickable branching tree below:
+</p>
+<ul>
+<li><span class="caret">Level 2 tree</span>
+<ul class="nested">
+<p>
+Preamble text for level 2 <i>tree</i>
+</p>
+<li><span class="caret">Tree branch A</span>
+<ul class="nested">
+<ul class="org-ul">
+<li><p>
+Branch A leaf AA with table
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">X</th>
+<th scope="col" class="org-right">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table></li>
+<li>Branch A leaf AB</li>
+</ul>
+
+</ul></li>
+<li><span class="caret">Tree branch B</span> optional leaf text
+<ul class="nested">
+<ul class="org-ul">
+<li>Branch B leaf BA</li>
+<li>Branch B leaf BB<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup></li>
+<li>Branch B leaf BC</li>
+</ul>
+<p>
+<code>Verbatim postamble text for level 2 tree</code>
+</p>
+
+</ul></li>
+
+</ul></li>
+</div>
+
+<div id="outline-container-orgdcd7196" class="outline-3">
+<h3 id="orgdcd7196">Subsection explaining how to use <code>HTML</code> <code>treeview</code></h3>
+<div class="outline-text-3" id="text-orgdcd7196">
+<p>
+It was created by using the following text within the <code>org</code> file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">** {{tree}} Level 2 tree
+  Preamble text for level 2 /tree/
+*** Tree branch A
+   - Branch A leaf AA with table
+     | X | Y |
+     |---+---|
+     | 0 | 0 |
+     | 1 | 2 |
+   - Branch A leaf AB
+*** Tree branch B {{leaf}} optional leaf text
+   - Branch B leaf BA
+   - Branch B leaf BB[fn:branch]
+   - Branch B leaf BC
+   =Verbatim postamble text for level 2 tree=
+</pre>
+</div>
+
+<p>
+On top of that, the function <a href="org-html-w-treeview">org-html-w-treeview</a> defined in
+<a href="hover_preview_and_treeview_html.el">hover_preview_and_treeview_html.el</a><sup><a id="fnr.8.100" class="footref" href="#fn.8">8</a></sup> will copy the contents into a
+temporary buffer, search for occurrences of <code>{{tree}}</code> text string, and
+then perform some <code>#+HTML:</code> inserts, and then eventually calling <code>org</code>&rsquo;s
+<code>HTML</code> export functions. This can be easily turned into a publishing
+function. Just write to a temporary file, publish using <a href=" org-html-publish-to-html"> org-html-publish-to-html</a>, and then delete the temporary file. The source
+<code>org</code> file contains startup code in a preamble section with a <code>:noexport:</code>
+tag that generates this <code>html</code> document.
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Footnote 1 text. The hungry fox jumped over the lazy dog.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">Gurney Hallack is a character in the Dune universe, created by
+Frank Herbert. He was the weapons master for House Atreides. He is also an
+excellent topic for a lengthy footnote.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+All swans are white.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+Swans are the only birds on this island.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+There are only white birds on this island.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
+This is a style file heavily seeded by the <a href="https://orgmode.org/worg/">worg</a> website, which is
+a community-run wiki for all things org-mode related. I use those tutorials
+extensively. Also another great lengthy footnote opportunity.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">
+<code>Javascript</code> code to update highlighted sections in the table of
+contents. Also contains behavior for footnotes.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"><p class="footpara">
+<code>emacs-lisp</code> functions to handle the hover-image span preview, as
+well as <code>HTML</code> <code>treeview</code> stuff.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">
+A footnote cited from within a branch for the treeview structure in
+<a href="#org7d6a5d4">Section 2</a>.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

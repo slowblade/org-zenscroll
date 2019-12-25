@@ -1,0 +1,114 @@
+#+TITLE: Zenscroll Style Test Webpage
+#+AUTHOR: Slow Blade
+#+EMAIL: slowblade@mail2tor.com
+# --------------------
+#+HTML: <div id="header"><h2><a href="index.html">Index Page</a></h2></div>
+
+* Startup code                                                     :noexport:
+#+NAME: startup
+#+BEGIN_SRC emacs-lisp :results silent :exports none
+(setq mypwd (file-name-directory buffer-file-name))
+(load (concat mypwd "hover_preview_and_treeview_html.el"))
+#+END_SRC
+
+* Section 1
+
+Starting text [[hover:img/lenna_lowres.jpg][my hover text:img/lenna.jpg]] ending[fn:1] text
+#+BEGIN_SRC text
+  Starting text [[hover:img/lenna_lowres.jpg][my hover text:img/lenna.jpg]] ending text
+#+END_SRC
+
+Quoting:
+
+#+begin_quote
+  /"The slow blade penetrates the shield."/ *-- Gurney
+  Hallack*[fn::Gurney Hallack is a character in the Dune universe, created by
+Frank Herbert. He was the weapons master for House Atreides. He is also an
+excellent topic for a lengthy footnote.]
+#+end_quote
+
+Footnote tab opens when cursor is hovered over the bottom part of the
+browser window, and should close when the mouse hovers out of the region.
+The tab will also open if a numerical-superscript citation link is clicked.
+Hovering over citation links in main body will draw a white highlighted box
+around the relevant footnote. Test this in the following:
+
+- Proposition A[fn:pA]
+- Proposition B[fn:pB]
+- Statement C[fn:pC]
+
+#+begin_quote
+  if Proposition A[fn:pA] and Proposition B[fn:pB] are true, then statement C[fn:pC] follows.
+#+end_quote
+
+Clicking on the same citation link twice consecutively will collapse the
+footnote tab.
+
+Files being used:
+- [[file:static/zenscroll.css]][fn:css]
+- [[file:static/zenscroll.js]][fn:js]
+- [[file:hover_preview_and_treeview_html.el]][fn:el]
+* Section 2
+  :PROPERTIES:
+  :ID:       13d143ac-ae89-4ce9-9170-6f61dfe427a6
+  :END:
+  Check out this clickable branching tree below:
+** {{tree}} Level 2 tree
+   Preamble text for level 2 /tree/
+*** Tree branch A
+    - Branch A leaf AA with table
+      | X | Y |
+      |---+---|
+      | 0 | 0 |
+      | 1 | 2 |
+    - Branch A leaf AB
+*** Tree branch B {{leaf}} optional leaf text
+    - Branch B leaf BA
+    - Branch B leaf BB[fn:branch]
+    - Branch B leaf BC
+    =Verbatim postamble text for level 2 tree=
+
+** Subsection explaining how to use =HTML= =treeview=
+
+It was created by using the following text within the =org= file:
+
+#+begin_src text
+ ** {{tree}} Level 2 tree
+   Preamble text for level 2 /tree/
+ *** Tree branch A
+    - Branch A leaf AA with table
+      | X | Y |
+      |---+---|
+      | 0 | 0 |
+      | 1 | 2 |
+    - Branch A leaf AB
+ *** Tree branch B {{leaf}} optional leaf text
+    - Branch B leaf BA
+    - Branch B leaf BB[fn:branch]
+    - Branch B leaf BC
+    =Verbatim postamble text for level 2 tree=
+#+end_src
+
+On top of that, the function [[elisp:org-html-w-treeview]] defined in
+[[file:hover_preview_and_treeview_html.el]][fn:el] will copy the contents into a
+temporary buffer, search for occurrences of ={{tree}}= text string, and
+then perform some =#+HTML:= inserts, and then eventually calling =org='s
+=HTML= export functions. This can be easily turned into a publishing
+function. Just write to a temporary file, publish using [[elisp:
+org-html-publish-to-html]], and then delete the temporary file. The source
+=org= file contains startup code in a preamble section with a =:noexport:=
+tag that generates this =html= document.
+
+[fn:1] Footnote 1 text. The hungry fox jumped over the lazy dog.
+[fn:css] This is a style file heavily seeded by the [[https://orgmode.org/worg/][worg]] website, which is
+a community-run wiki for all things org-mode related. I use those tutorials
+extensively. Also another great lengthy footnote opportunity.
+[fn:js] =Javascript= code to update highlighted sections in the table of
+contents. Also contains behavior for footnotes.
+[fn:el] =emacs-lisp= functions to handle the hover-image span preview, as
+well as =HTML= =treeview= stuff.
+[fn:branch] A footnote cited from within a branch for the treeview structure in
+[[id:13d143ac-ae89-4ce9-9170-6f61dfe427a6][Section 2]].
+[fn:pA] All swans are white.
+[fn:pB] Swans are the only birds on this island.
+[fn:pC] There are only white birds on this island.
