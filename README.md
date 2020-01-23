@@ -1,5 +1,5 @@
-Style files, and emacs-lisp export function for generating zenscroll styled
-html files from org files.
+Style files, org template, and emacs-lisp export function for generating
+zenscroll styled html files from org files.
 
 See https://slowblade.github.io/org-zenscroll/test_zenscroll.html for
 results.

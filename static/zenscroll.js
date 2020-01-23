@@ -78,6 +78,9 @@
                         }
                         this.classList.add("just_clicked");
                         text_footnote.style.display = "block";
+                        setTimeout(function() {
+                            footnote.scrollTop = Math.max(0, footnote.scrollTop - 11);
+                        }, (10)); // miliseconds
                     }
                 });
 
