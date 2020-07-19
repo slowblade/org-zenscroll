@@ -116,8 +116,14 @@
         (end-of-line)
         (org-map-entries 'encapsulate_heading nil 'tree)
       ) ; while
+      (beginning-of-buffer)
+      (while (search-forward-regexp "^\*+ {{endtree}}" nil t)
+        (beginning-of-line)
+        (delete-region (point) (line-end-position))
+        (insert "#+HTML: </div>")
+        ) ; while
 	    (org-export-to-file 'html outfile)
-        (kill-buffer (current-buffer))
+      (kill-buffer (current-buffer))
           ) ; with-temp...
         ) ; let
        ) ; with-output-...

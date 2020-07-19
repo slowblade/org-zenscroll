@@ -68,6 +68,8 @@ Files being used:
     - Branch B leaf BC
     =Verbatim postamble text for level 2 tree=
 
+** {{endtree}} optional end of tree heading (this heading will be deleted in =html= dump)
+Pretty cool collapse eh?
 ** Subsection explaining how to use =HTML= =treeview=
 
 It was created by using the following text within the =org= file:
@@ -87,6 +89,8 @@ It was created by using the following text within the =org= file:
     - Branch B leaf BB[fn:branch]
     - Branch B leaf BC
     =Verbatim postamble text for level 2 tree=
+ ** {{endtree}} optional end of tree heading (this heading will be deleted in =html= dump)
+Pretty cool collapse eh?
 #+end_src
 
 On top of that, the function [[elisp:org-html-w-treeview]] defined in
