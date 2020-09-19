@@ -102,12 +102,25 @@
 	      var treetoggler = document.getElementsByClassName("caret");
 	      var i;
 	      for (i = 0; i < treetoggler.length; i++) {
-	          treetoggler[i].addEventListener("click", function() {
+	          treetoggler[i].addEventListener("click", function(tt) {
 		            this.parentElement.querySelector(".nested").classList.toggle("active");
+
+                var activelist = this.parentElement.querySelector(".active");
+                if(activelist != null) {
+                    activelist.addEventListener("click", function(e) {
+                        if(  e.offsetX < 5) {
+                            e.target.classList.remove("active");
+                            e.target.parentElement.querySelector(".caret").classList.remove("caret-down");
+                            readsectionpositions();
+                            updatetoc_sectionhighlighting();
+                        }
+                    });
+                }
 		            this.classList.toggle("caret-down");
                 readsectionpositions();
                 updatetoc_sectionhighlighting();
 	          });
+
 	      }
     }
 

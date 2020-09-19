@@ -360,7 +360,10 @@
       display: block;
     }
 
-
+    body .active {
+      position: relative;
+      border-left: 5px dotted #dcdccc;
+    }
 
   .rss_box {}
   .rss_title, rss_title a {}
