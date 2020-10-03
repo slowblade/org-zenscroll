@@ -29,7 +29,29 @@
         }
     }
 
+        // create tooltip element
+        var ttBox = document.createElement("div");
+
+        // set style
+        ttBox.id = "treetip";
+        ttBox.innerHTML = "test text";
+        ttBox.style.visibility = "hidden"; // make it hidden till mouse over
+        ttBox.style.position = "fixed";
+        ttBox.style.top = "0.5rem";
+        ttBox.style.left = "0.5rem";
+        ttBox.style.padding = "0.5rem";
+        ttBox.style.width = "10rem";
+        ttBox.style.borderRadius = "1rem";
+        ttBox.style.border = "solid thin gray";
+        // ttBox.style.backgroundColor = "lightgrey";
+
+
     window.onload = function() {
+
+
+        // insert into DOM
+        document.body.appendChild(ttBox);
+
         readsectionpositions();
 
         // Note all footnote references
@@ -100,17 +122,38 @@
         }
         // Handle visibility of treeview segments
 	      var treetoggler = document.getElementsByClassName("caret");
+        var ttarray = [];
 	      var i;
 	      for (i = 0; i < treetoggler.length; i++) {
+            ttarray.push(treetoggler[i].innerHTML);
+
 	          treetoggler[i].addEventListener("click", function(tt) {
 		            this.parentElement.querySelector(".nested").classList.toggle("active");
-
                 var activelist = this.parentElement.querySelector(".active");
                 if(activelist != null) {
+                    activelist.addEventListener("mousemove", function(e) {
+                        var ii = Array.prototype.indexOf.call(treetoggler,this.previousSibling.previousSibling);
+                        if(e.clientX < activelist.getBoundingClientRect().left + 10) {
+                            ttBox.style.visibility = "visible";
+                            ttBox.innerHTML = ttarray[ii];
+                            ttBox.style.top = (e.clientY).toString() + "px";
+                            ttBox.style.left = "100px";
+                        } else {
+                            ttBox.style.visibility = "hidden";
+                        }
+                        e.stopImmediatePropagation();
+                    });
+                    activelist.addEventListener("mouseout", function(e) {
+                        var ii = Array.prototype.indexOf.call(treetoggler,this.previousSibling.previousSibling);
+                        ttBox.style.visibility = "hidden";
+                        e.stopImmediatePropagation();
+                    });
                     activelist.addEventListener("click", function(e) {
-                        if(  e.offsetX < 5) {
+                        if(e.offsetX <  activelist.getBoundingClientRect().left + 10) {
                             e.target.classList.remove("active");
-                            e.target.parentElement.querySelector(".caret").classList.remove("caret-down");
+                            if(e.target.parentElement.querySelector(".caret") != null) {
+                                e.target.parentElement.querySelector(".caret").classList.remove("caret-down");
+                            }
                             readsectionpositions();
                             updatetoc_sectionhighlighting();
                         }

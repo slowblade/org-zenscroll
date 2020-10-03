@@ -117,6 +117,18 @@
       margin-bottom: 100em
     }
 
+    #treetip {
+      visibility: hidden;
+      position: fixed;
+      top: 10em;
+      left: 0.5em;
+      max-width: 10em;
+      padding-left: 1em;
+      padding-right: 1em;
+      borderRadius: 1rem;
+      border: solid thin gray;
+    }
+
   #header {
     font-size: 1em;
     position: absolute;
