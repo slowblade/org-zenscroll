@@ -125,7 +125,7 @@
       max-width: 10em;
       padding-left: 1em;
       padding-right: 1em;
-      borderRadius: 1rem;
+      border-radius: 0.5rem;
       border: solid thin gray;
     }
 

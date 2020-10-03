@@ -29,25 +29,14 @@
         }
     }
 
-        // create tooltip element
-        var ttBox = document.createElement("div");
+    // create tooltip element
+    var ttBox = document.createElement("div");
 
-        // set style
-        ttBox.id = "treetip";
-        ttBox.innerHTML = "test text";
-        ttBox.style.visibility = "hidden"; // make it hidden till mouse over
-        ttBox.style.position = "fixed";
-        ttBox.style.top = "0.5rem";
-        ttBox.style.left = "0.5rem";
-        ttBox.style.padding = "0.5rem";
-        ttBox.style.width = "10rem";
-        ttBox.style.borderRadius = "1rem";
-        ttBox.style.border = "solid thin gray";
-        // ttBox.style.backgroundColor = "lightgrey";
-
+    // set style
+    ttBox.id = "treetip";
+    ttBox.innerHTML = "test text";
 
     window.onload = function() {
-
 
         // insert into DOM
         document.body.appendChild(ttBox);
