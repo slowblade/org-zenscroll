@@ -15,6 +15,6 @@ Design goals included minimizing scripting (no jquery), and file fetching
 (local static files only).
 
 For examples with real content, see tor hidden service site:
-http://joysxowslowblade.onion
+[http://slowbladete5rrf7wrsthck3aswsyoeajmcej5jwpfhjmvkz6uhiekqd.onion](https://slowblade.github.io/org-zenscroll/test_zenscroll.html)
 
 You must use the Tor Browser Bundle to visit it.

@@ -11,12 +11,12 @@
   }
   body p {
     text-indent: 1.5em;
+    font-size: 1.2em;
     }
 
     body #content {
       padding-top: 2em;
       padding-bottom: 2em;
-      font-size: 1.2em;
     }
     code {
       font-size: 1.2em;
