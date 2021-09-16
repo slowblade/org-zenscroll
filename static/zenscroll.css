@@ -284,8 +284,6 @@
     }
     #table-of-contents #text-table-of-contents li a {
       margin-right: 0.5em;
-    }
-    #table-of-contents:hover #text-table-of-contents li a {
       color: #dcdccc;
       font-weight: bold;
       text-decoration: none;

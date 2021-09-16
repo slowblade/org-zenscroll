@@ -43,6 +43,35 @@
 
         readsectionpositions();
 
+        // Make table of contents pin-able with clicks
+        var toc = document.getElementById("table-of-contents");
+        var txtoc = document.getElementById("text-table-of-contents");
+        if(toc != null) {
+            toc.addEventListener("mouseover", function() {
+                txtoc.style.display = "block";
+            });
+            toc.addEventListener("mouseout", function() {
+                if (! toc.classList.contains("pinned") ) {
+                    txtoc.style.display = "none";
+                }
+            });
+            toc.addEventListener("click", (evt) => {
+                if (evt.target.tagName != "A") {
+                    if(! toc.classList.contains("pinned")) {
+                        toc.classList.add("pinned");
+                        toc.style.background = "#3b3b3b";
+                        toc.style.borderStyle = "groove";
+//                        txtoc.style.display = "block";
+                    } else {
+                        toc.classList.remove("pinned");
+                        toc.style.background = "#2b2b2b";
+                        toc.style.borderStyle = "none";
+//                        txtoc.style.display = "none";
+                    }
+                }
+            });
+        }
+
         // Note all footnote references
         var footrefs = document.getElementsByClassName("footref");
         var footdefs = document.getElementsByClassName("footdef");
