@@ -46,36 +46,102 @@
         // Note all footnote references
         var footrefs = document.getElementsByClassName("footref");
         var footdefs = document.getElementsByClassName("footdef");
+        var footnums = document.getElementsByClassName("footnum");
         var footnote = document.getElementById("footnotes");
         var text_footnote = document.getElementById("text-footnotes");
         var k, scr = 0, mysel;
+        var isresizing = false;
         // Give the footnotes tab hover behavior
         if(footnote != null) {
-            footnote.addEventListener("mouseover", function() {
+            footnote.addEventListener("mouseover", (evt) => {
                 if (text_footnote.style.display == "block") {
                     scr = footnote.scrollTop;
                 } else {
                     text_footnote.style.display = "block";
                     footnote.scrollTop = scr;
+                    var rect = footnote.getBoundingClientRect();
+                    if (rect.top - evt.clientY > -20) {
+                        footnote.style.cursor = "n-resize";
+                    } else {
+                        footnote.style.cursor = "default";
+                    }
                 }
             });
-            text_footnote.addEventListener("mouseout", function() {
-                scr = footnote.scrollTop;
-                text_footnote.style.display = "none";
-                mysel = document.querySelector(".highlighted");
-                if(mysel != null) {
-                    mysel.classList.remove("highlighted");
+            text_footnote.addEventListener("mousemove", (evt) => {
+                footnote.style.cursor = "default";
+                var rect = footnote.getBoundingClientRect();
+                if (rect.top - evt.clientY > -20) {
+                    footnote.style.cursor = "n-resize";
+                } else {
+                    if (!isresizing) {
+                        footnote.style.cursor = "default";
+                    }
                 }
-                mysel = document.querySelector(".just_clicked");
-                if(mysel != null) {
-                    mysel.classList.remove("just_clicked");
+            });
+            document.addEventListener("mousemove", (evt) => {
+                if (isresizing) {
+                    footnote.style.cursor = "n-resize";
+                    footnote.style.maxHeight = window.screen.height - evt.clientY + 'px';
+                    footnote.scrollTop = scr;
+                    console.log(window.screen.height - evt.clientY);
                 }
+            });
 
+            footnote.addEventListener("mouseout", function() {
+                if(! footnote.classList.contains("pinned")) {
+                    scr = footnote.scrollTop;
+                    text_footnote.style.display = "none";
+                    mysel = document.querySelector(".highlighted");
+                    if(mysel != null) {
+                        mysel.classList.remove("highlighted");
+                    }
+                    mysel = document.querySelector(".just_clicked");
+                    if(mysel != null) {
+                        mysel.classList.remove("just_clicked");
+                    }
+                }
+            });
+            footnote.addEventListener("mousedown", (evt) => {
+                if (footnote.style.cursor == "n-resize") {
+                    isresizing = true;
+                    scr = footnote.scrollTop;
+                }
+            });
+            footnote.addEventListener("mouseup", (evt) => {
+                isresizing = false;
+            });
+            text_footnote.addEventListener("mousedown", (evt) => {
+                if (footnote.style.cursor != "n-resize") {
+                    if (evt.target.tagName != "A") {
+                        if(! footnote.classList.contains("pinned")) {
+                            footnote.classList.add("pinned");
+                            footnote.style.background = "#3b3b3b";
+                            footnote.style.borderTopStyle = "groove";
+                        } else {
+                            footnote.classList.remove("pinned");
+                            footnote.style.background = "#2b2b2b";
+                            footnote.style.borderTopStyle = "none";
+                            /*
+                              scr = footnote.scrollTop;
+                              text_footnote.style.display = "none";
+                              mysel = document.querySelector(".highlighted");
+                              if(mysel != null) {
+                              mysel.classList.remove("highlighted");
+                              }
+                              mysel = document.querySelector(".just_clicked");
+                              if(mysel != null) {
+                              mysel.classList.remove("just_clicked");
+                              }
+                            */
+                        }
+                    }
+                }
             });
         // Toggle footnotes tab visibility when footnote link is clicked
         // Clicking any footnote reference twice consecutively collapses tab
             var j, l;
             for (j = 0; j < footrefs.length; j++) {
+
                 footrefs[j].addEventListener("click", function() {
 
                     if (this.classList.contains("just_clicked")) {
@@ -122,7 +188,7 @@
                 if(activelist != null) {
                     activelist.addEventListener("mousemove", function(e) {
                         var ii = Array.prototype.indexOf.call(treetoggler,this.previousSibling.previousSibling);
-                        if(e.clientX < activelist.getBoundingClientRect().left + 10) {
+                        if(e.clientX < activelist.getBoundingClientRect().left + 20) {
                             ttBox.style.visibility = "visible";
                             ttBox.innerHTML = ttarray[ii];
                             ttBox.style.top = (e.clientY).toString() + "px";

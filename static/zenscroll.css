@@ -200,7 +200,8 @@
   }
 
 
-    #footnotes {
+  #footnotes {
+    border-width: 5px;
       font-size: 1em;
       position: fixed;
       left: 10%;
@@ -222,7 +223,7 @@
       max-height: 30%;
       overflow: auto;
       z-index: 96;
-    }
+  }
     #footnotes h2 {
       visibility: hidden;
       margin-top: 0.1em;
@@ -302,7 +303,7 @@
 	    color: #5b5b5b;
 	    display: inline-block; width: 1em;
 	    margin-left: -1em;
-	    padding-right: 5px;
+	    padding-right: 10px;
     }
 
     body table, th, td {
