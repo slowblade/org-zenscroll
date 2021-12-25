@@ -1,11 +1,13 @@
 (function() {
   'use strict';
 
-  var section = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-  /*var section = document.querySelectorAll(".section");*/
+    var section = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    /*var section = document.querySelectorAll(".section");*/
+    // console.log(section);
+
   var sections = {};
   var i = 0;
-      var window_height_half = 0.0;
+  var window_height_half = 0.0;
 
     // Recompute window sizes
     window.onresize = function() {
@@ -35,6 +37,28 @@
     // set style
     ttBox.id = "treetip";
     ttBox.innerHTML = "test text";
+
+    var images = document.getElementsByTagName("img");
+    var iframes = document.getElementsByTagName("iframe");
+    document.onreadystatechange = function(e)
+    {
+        if (document.readyState === 'complete')
+        {
+            //dom is ready, window.onload fires later
+            for (var im = 0; im < images.length; im++) {
+                images[im].setAttribute("loading", "lazy");
+                images[im].onload = function () {
+                    readsectionpositions();
+                };
+            }
+            for (var im = 0; im < iframes.length; im++) {
+                iframes[im].setAttribute("loading", "lazy");
+                iframes[im].onload = function () {
+                    readsectionpositions();
+                };
+            }
+        }
+    };
 
     window.onload = function() {
 
@@ -112,7 +136,6 @@
                     footnote.style.cursor = "n-resize";
                     footnote.style.maxHeight = window.screen.height - evt.clientY + 'px';
                     footnote.scrollTop = scr;
-                    console.log(window.screen.height - evt.clientY);
                 }
             });
 

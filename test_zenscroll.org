@@ -29,9 +29,11 @@ excellent topic for a lengthy footnote.]
 
 Footnote tab opens when cursor is hovered over the bottom part of the
 browser window, and should close when the mouse hovers out of the region.
-The tab will also open if a numerical-superscript citation link is clicked.
-Hovering over citation links in main body will draw a white highlighted box
-around the relevant footnote. Test this in the following:
+This behavior can be overridden by clicking on the footnote tab, which pins
+it. Click again to revert. Drag the top of the tab to resize. The tab will
+also open if a numerical-superscript citation link is clicked. Hovering
+over citation links in main body will draw a white highlighted box around
+the relevant footnote. Test this in the following:
 
 - Proposition A[fn:pA]
 - Proposition B[fn:pB]
