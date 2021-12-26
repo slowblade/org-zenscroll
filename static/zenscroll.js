@@ -267,6 +267,12 @@
                     });
                 }
 		            this.classList.toggle("caret-down");
+                if(this.style.textDecorationStyle == "wavy") {
+                     this.style.textDecorationStyle = "solid";
+                } else {
+                    this.style.textDecorationStyle = "wavy";
+                    console.log(this.content);
+                }
                 readsectionpositions();
                 updatetoc_sectionhighlighting();
 	          });
