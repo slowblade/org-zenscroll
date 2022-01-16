@@ -2,6 +2,7 @@
   'use strict';
 
     var section = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    var iframes = document.querySelectorAll("iframe");
     /*var section = document.querySelectorAll(".section");*/
     // console.log(section);
 
@@ -64,6 +65,46 @@
 
         // insert into DOM
         document.body.appendChild(ttBox);
+
+        // Handle lazy-loading of iframes (videos)
+        while(iframes.length > 0) {
+            const embed = iframes[0];
+            const clonedEmbed = embed.cloneNode(true);
+            const wrapper = document.createElement('div');
+            wrapper.classList = embed.classList;
+            wrapper.style.position = 'relative';
+            wrapper.classList.add('lazyembed');
+            let if_image;
+            if(clonedEmbed.hasAttribute('data-placeholder')) {
+                if_image = document.createElement('img');
+                if_image.className = 'center';
+                if_image.setAttribute('src', clonedEmbed.getAttribute('data-placeholder'));
+                if_image.style.filter = 'brightness(70%)';
+                if(clonedEmbed.hasAttribute('width')) {
+                    if_image.setAttribute('width', clonedEmbed.getAttribute('width'));
+                }
+                if(clonedEmbed.hasAttribute('height')) {
+                    if_image.setAttribute('height', clonedEmbed.getAttribute('height'));
+                }
+            }
+            const overlayText = document.createElement('div');
+            overlayText.className = 'lazyembed__text';
+            overlayText.innerHTML = 'Click to load';
+            overlayText.setAttribute('style', 'position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size: 5em; pointer-events:none;');
+
+            if(if_image) {
+                wrapper.appendChild(if_image);
+                if_image.addEventListener('click', () => {
+                    overlayText.style.display = 'none';
+                    if_image.parentNode.replaceChild(clonedEmbed, if_image);
+                    if(clonedEmbed.hasAttribute('data-src')) {
+                        clonedEmbed.setAttribute('src', clonedEmbed.getAttribute('data-src'));
+                    }
+                }, false);
+            }
+            wrapper.appendChild(overlayText);
+            embed.parentNode.replaceChild(wrapper, embed);
+        }
 
         readsectionpositions();
 

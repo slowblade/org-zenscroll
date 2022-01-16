@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-25 Sat 12:14 -->
+<!-- 2022-01-16 Sun 16:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Zenscroll Style Test Webpage</title>
@@ -249,10 +249,10 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc408429">Section 1</a></li>
-<li><a href="#org73cc449">Section 2</a>
+<li><a href="#orgf285534">Section 1</a></li>
+<li><a href="#orgfb52379">Section 2</a>
 <ul>
-<li><a href="#org4f5d31f">Subsection explaining how to use <code>HTML</code> <code>treeview</code></a></li>
+<li><a href="#orgbcefec9">Subsection explaining how to use <code>HTML</code> <code>treeview</code></a></li>
 </ul>
 </li>
 </ul>
@@ -260,9 +260,9 @@ for the JavaScript code in this tag.
 </div>
 <div id="header"><h2><a href="index.html">Index Page</a></h2></div>
 
-<div id="outline-container-orgc408429" class="outline-2">
-<h2 id="orgc408429">Section 1</h2>
-<div class="outline-text-2" id="text-orgc408429">
+<div id="outline-container-orgf285534" class="outline-2">
+<h2 id="orgf285534">Section 1</h2>
+<div class="outline-text-2" id="text-orgf285534">
 <p>
 Starting text <a href="img/lenna.jpg">my hover text<span><img src="img/lenna_lowres.jpg"/></span></a> ending<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> text
 </p>
@@ -319,9 +319,9 @@ Files being used:
 </ul>
 </div>
 </div>
-<div id="outline-container-org73cc449" class="outline-2">
-<h2 id="org73cc449">Section 2</h2>
-<div class="outline-text-2" id="text-org73cc449">
+<div id="outline-container-orgfb52379" class="outline-2">
+<h2 id="orgfb52379">Section 2</h2>
+<div class="outline-text-2" id="text-orgfb52379">
 <p>
 Check out this clickable branching tree below:
 </p>
@@ -387,9 +387,9 @@ Branch A leaf AA with table
 Pretty cool collapse eh?
 </p>
 </div>
-<div id="outline-container-org4f5d31f" class="outline-3">
-<h3 id="org4f5d31f">Subsection explaining how to use <code>HTML</code> <code>treeview</code></h3>
-<div class="outline-text-3" id="text-org4f5d31f">
+<div id="outline-container-orgbcefec9" class="outline-3">
+<h3 id="orgbcefec9">Subsection explaining how to use <code>HTML</code> <code>treeview</code></h3>
+<div class="outline-text-3" id="text-orgbcefec9">
 <p>
 It was created by using the following text within the <code>org</code> file:
 </p>
@@ -423,6 +423,23 @@ then perform some <code>#+HTML:</code> inserts, and then eventually calling <cod
 function. Just write to a temporary file, publish using <a href=" org-html-publish-to-html"> org-html-publish-to-html</a>, and then delete the temporary file. The source
 <code>org</code> file contains startup code in a preamble section with a <code>:noexport:</code>
 tag that generates this <code>html</code> document.
+</p>
+
+<p>
+You can also lazy-load embedded <code>iframes</code> like links to stream-able videos.
+Just replace the <code>src</code> attribute name with <code>data-src</code>, and include an image
+with the <code>data-placeholder</code> attribute. Then, when the document loads, the
+<code>iframe</code> elements will be replaced by the placeholder images with a
+&ldquo;click-to-play&rdquo; overlay text block, like below:
+</p>
+
+
+<iframe class="center" data-placeholder="img/dwight.jpg" data-src="https://archive.org/embed/DwightD.Eisenhower-FarewellAddressmilitary-industrialComplexSpeech" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+
+<iframe class="center" data-placeholder="img/Tom_Lehrer_-_Wernher_von_Braun_-_with_intro.jpg" data-src="https://archive.org/embed/youtube-TjDEsGZLbio" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+
+<p>
+Last line of text before footnotes.
 </p>
 </div>
 </div>
@@ -469,7 +486,7 @@ well as <code>HTML</code> <code>treeview</code> stuff.
 
 <div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">
 A footnote cited from within a branch for the treeview structure in
-<a href="#org73cc449">Section 2</a>.
+<a href="#orgfb52379">Section 2</a>.
 </p></div></div>
 
 

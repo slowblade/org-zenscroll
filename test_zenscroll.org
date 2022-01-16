@@ -105,6 +105,19 @@ org-html-publish-to-html]], and then delete the temporary file. The source
 =org= file contains startup code in a preamble section with a =:noexport:=
 tag that generates this =html= document.
 
+You can also lazy-load embedded =iframes= like links to stream-able videos.
+Just replace the =src= attribute name with =data-src=, and include an image
+with the =data-placeholder= attribute. Then, when the document loads, the
+=iframe= elements will be replaced by the placeholder images with a
+"click-to-play" overlay text block, like below:
+
+
+#+HTML: <iframe class="center" data-placeholder="img/dwight.jpg" data-src="https://archive.org/embed/DwightD.Eisenhower-FarewellAddressmilitary-industrialComplexSpeech" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+
+#+HTML: <iframe class="center" data-placeholder="img/Tom_Lehrer_-_Wernher_von_Braun_-_with_intro.jpg" data-src="https://archive.org/embed/youtube-TjDEsGZLbio" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+
+Last line of text before footnotes.
+
 [fn:1] Footnote 1 text. The hungry fox jumped over the lazy dog.
 [fn:css] This is a style file heavily seeded by the [[https://orgmode.org/worg/][worg]] website, which is
 a community-run wiki for all things org-mode related. I use those tutorials
